@@ -1,0 +1,22 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets "@AppBundle/Resources/public/less/comments.less" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <div>
+        {% if publication.preview.path is defined  %}
+            <img src="{{ publication.preview.path }}" style="max-width: 250px; float: left; margin: 0 20px 10px 10px" class="img-thumbnail">
+        {% endif %}
+        <h1 class="blue-text">{{ publication.title }}</h1>
+        {{ publication.body | raw }}
+    </div>
+
+    {% if publication.isAllowCommentary == true %}
+        {% include '@App/Publication/comments.html.twig'  with {'comments': publication.comments, 'id' : publication.id, 'type': 'publication' } %}
+    {% endif %}
+{% endblock %}
