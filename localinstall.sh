@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CURRENT_DIR=/var/www/euat
+CURRENT_DIR=/var/www/bbehterev
 git pull
 php ././../composer.phar install
 php bin/console assets:install --symlink
