@@ -7,55 +7,27 @@
         <div class="col-sm-7 col-xs-12" style="border-right: 1px solid #001A64; padding-right: 30px;">
             <div class="content-title text-center">О Болезние Бехтерова</div>
             <div class="news-block">
+                {% for p in publications %}
                 <div class="new-item">
-                    <div class="new-title"><a href="#">Мизулина предлагает оградить российских детей от пагубного влияния онлайн видеоигр</a></div>
-                    <div class="new-params">20.03.1016</div>
+                    <div class="new-title">
+                        <a href="{{ path('publications',{'url': p.slug }) }}">{{ p.title }}</a>
+                    </div>
+                    <div class="new-params">{{ p.created | date('d.m.Y') }}</div>
                     <div class="new-desc">
-                        Мерило нравственности и блюститель духовных скреп российских граждан, Елена Борисовна Мизулина
-                        возвращается на законодательное поле боя с новой инициативой — оградить российских детей от
-                        «плохих» онлайн видеоигр
+                        {{ p.body | striptags | slice(0 , 200) }}
                     </div>
                 </div>
-                <div class="new-item">
-                    <div class="new-title"><a href="#">Мизулина предлагает оградить российских детей от пагубного влияния онлайн видеоигр</a></div>
-                    <div class="new-params">20.03.1016</div>
-                    <div class="new-desc">
-                        Мерило нравственности и блюститель духовных скреп российских граждан, Елена Борисовна Мизулина
-                        возвращается на законодательное поле боя с новой инициативой — оградить российских детей от
-                        «плохих» онлайн видеоигр
-                    </div>
-                </div>
-                <div class="new-item">
-                    <div class="new-title"><a href="#">Мизулина предлагает оградить российских детей от пагубного влияния онлайн видеоигр</a></div>
-                    <div class="new-params">20.03.1016</div>
-                    <div class="new-desc">
-                        Мерило нравственности и блюститель духовных скреп российских граждан, Елена Борисовна Мизулина
-                        возвращается на законодательное поле боя с новой инициативой — оградить российских детей от
-                        «плохих» онлайн видеоигр
-                    </div>
-                </div>
-                <div class="new-item">
-                    <div class="new-title"><a href="#">Мизулина предлагает оградить российских детей от пагубного влияния онлайн видеоигр</a></div>
-                    <div class="new-params">20.03.1016</div>
-                    <div class="new-desc">
-                        Мерило нравственности и блюститель духовных скреп российских граждан, Елена Борисовна Мизулина
-                        возвращается на законодательное поле боя с новой инициативой — оградить российских детей от
-                        «плохих» онлайн видеоигр
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="col-sm-5 col-xs-12" style=" padding-left: 30px;">
             <div class="content-title text-center">Видеоуроки</div>
             <div class="news-block">
-                <div class="news-item text-right">
-                    <a><img src="{{ asset('bundles/app/imgs/video-1.png') }}"></a>
-                </div>
-                <br />
-                <br />
-                <div class="news-item text-right">
-                    <a><img src="{{ asset('bundles/app/imgs/video-2.png') }}"></a>
-                </div>
+                {% for v in videos %}
+                    <div class="news-item text-right">
+                        <a href="#"><img src="{{ base_url~v.video.path }}"></a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

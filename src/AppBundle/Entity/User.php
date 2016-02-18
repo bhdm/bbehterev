@@ -145,12 +145,18 @@ class User extends BaseUser
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\TestLog", mappedBy="user")
+     */
+    private $tests;
+
 
     public function __construct()
     {
         $this->certificate = array();
         $this->courses = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->tests = new ArrayCollection();
         parent::__construct();
     }
 
@@ -464,6 +470,38 @@ class User extends BaseUser
     public function setCourses($courses)
     {
         $this->courses = $courses;
+    }
+
+    /**
+     * @return Comment
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param Comment $comments
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTests()
+    {
+        return $this->tests;
+    }
+
+    /**
+     * @param mixed $tests
+     */
+    public function setTests($tests)
+    {
+        $this->tests = $tests;
     }
 
 
