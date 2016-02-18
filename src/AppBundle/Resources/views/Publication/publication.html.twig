@@ -15,7 +15,8 @@
         <h1 class="blue-text">{{ publication.title }}</h1>
         {{ publication.body | raw }}
     </div>
-
+    <br />
+    <br />
     {% if publication.isAllowCommentary == true %}
         {% include '@App/Publication/comments.html.twig'  with {'comments': publication.comments, 'id' : publication.id, 'type': 'publication' } %}
     {% endif %}
