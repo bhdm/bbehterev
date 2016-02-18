@@ -34,4 +34,12 @@ class DefaultController extends Controller
 
         return ['menu' => $menu];
     }
+
+    /**
+     * @Route("/donate", name="donate")
+     * @Template()
+     */
+    public function donateAction(){
+        return [];
+    }
 }

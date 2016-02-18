@@ -84,12 +84,13 @@
                 {% include "@App/Widget/flatmenu.html.twig" %}
             </div>
         <br />
-        <br />
+
         {% if app.request.attributes.get('_route') == 'homepage' %}
+            <br />
             {% include "@App/Widget/test.html.twig" %}
+            <br />
+            <br />
         {% endif %}
-        <br />
-        <br />
         <div class="content">
             {% block fullContent %}{% block content %}{% endblock %}{% endblock %}
         </div>

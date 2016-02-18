@@ -1,0 +1,71 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets "@AppBundle/Resources/public/less/comments.less" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="blue-text">Перевод денежных средств</h1>
+        <div style="font-size: 17px">
+            Если Вы знаете, что такое болезнь Бехтерева и как тяжело бывает пациентам с
+            этим заболеванием в обычной жизни, <strong>сделайте пожертвование</strong> в пользу Общества взаимопомощи
+            при болезни Бехтерева <strong>и поддержите нашу работу по улучшению качества жизни пациентов, страдающих
+                болезнью Бехтерева!</strong> Ваше пожертвование поможет нам распространить информацию о методах борьбы
+            с болезнью Бехтерева, буклеты и dvd-диски с упражнениями по лечебной физкультуре среди большего количества
+            нуждающихся в этом пациентов. Даже небольшое пожертвование в 100 рублей поможет популяризировать Лечебную
+            физкультуру и позволит <a href="/novosti/13-08-2014" target="_blank">нам распечатать 15-20 буклетов или
+                2-3 диска</a>, или <a href="/novosti/01-06-2014" target="_blank">организовать праздник для детей с
+                ревматическими заболеваниями</a>, а значит - <strong>сделать еще несколько жизней лучше, проявив
+                заботу о них! А если Ваше пожертвование будет <span style="color: #0000ff;">регулярным, к примеру
+                    раз в месяц</span>, то Общество сможет планировать больше мероприятий!</strong> Какую бы сумму Вы
+            не решили пожертвовать, будьте уверены, что Ваши деньги будут использованы надлежащим образом!
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-5">
+            <form method="POST" class="form-horizontal">
+                <div class="form-group">
+                    <label>ФИО</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Телефон</label>
+                    <input type="text" class="form-control phone">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control email">
+                </div>
+                <div class="form-group">
+                    <label>Цель</label>
+                    <select class="form-control">
+                        <option value="0">Добровольное пожертвование на уставную деятельность</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Сумма</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="text-right"></label>
+                    <input type="checkbox" value="1"> Я принимаю условия оферты
+                </div>
+                <div class="form-group text-right">
+                    <button class="btn btn-primary">Перевести</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-5">
+            <br />
+            <img src="{{ asset('bundles/app/imgs/payment.png') }}">
+        </div>
+    </div>
+    <br />
+    <br />
+{% endblock %}
