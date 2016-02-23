@@ -22,6 +22,17 @@ class PublicationController extends Controller
     }
 
     /**
+     * @Route("/news", name="news")
+     * @Template("AppBundle:Publication:news.html.twig")
+     */
+    public function newsAction(Request $request)
+    {
+        $news = $this->getDoctrine()->getRepository('AppBundle:Publication')->findBy(['enabled' => true],['id' => 'DESC']);
+        return ['news' => $news];
+    }
+
+
+    /**
      * @Template("AppBundle:Publication:page.html.twig")
      */
     public function pageAction(Request $request, $url)

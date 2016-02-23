@@ -20,7 +20,7 @@ class City
 	protected $id;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity = "Country", inversedBy = "cities")
+	 * @ORM\ManyToOne(targetEntity = "AppBundle\Entity\Country", inversedBy = "cities")
 	 * @Assert\NotBlank(message = "Пожалуйста, укажите страну.")
 	 */
 	protected $country;

@@ -12,13 +12,48 @@
 
     <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Главная</a></li>
-            <li><a href="#">Об организации</a></li>
-            <li><a href="#">Новости</a></li>
-            <li><a href="#">Мероприятия</a></li>
-            <li><a href="#">Самодиагностика</a></li>
-            <li><a href="#">Лечение</a></li>
-            <li><a href="#">Физкультура</a></li>
+            <li class="active"><a href="{{ path('homepage') }}">Главная</a></li>
+            <li>
+                <a href="#">Об организации</a>
+                <div class="submenu">
+                    <ul class="submenu-items">
+                        <li><a href="#">Цели и задачи</a></li>
+                        <li><a href="#">Региональные отделения</a></li>
+                        <li><a href="#">Мы в социальных сетях</a></li>
+                        <li><a href="#">Пресса о нас</a></li>
+                        <li><a href="#">Пожертвования</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="{{ path('news') }}">Новости</a></li>
+            <li>
+                <a href="#">Мероприятия</a>
+                <div class="submenu">
+                    <ul class="submenu-items">
+                        <li><a href="#">Школа для пациентов</a></li>
+                        <li><a href="#">Международная деятельность</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">Самодиагностика</a>
+                <div class="submenu">
+                    <ul class="submenu-items">
+                        <li><a href="#">Индекс BASDAI</a></li>
+                        <li><a href="#">Индекс BASFI</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">Лечебная физкультура</a>
+                <div class="submenu">
+                    <ul class="submenu-items">
+                        <li><a href="#">Методика</a></li>
+                        <li><a href="#">Видеоуроки</a></li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>

@@ -1,0 +1,22 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets "@AppBundle/Resources/public/less/comments.less" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="blue-text">Новости</h1>
+        <div>
+        {% for n in news %}
+            {{ n.title }}
+            {{ n.body }}
+        {% endfor %}
+        </div>
+    </div>
+    <br />
+    <br />
+{% endblock %}

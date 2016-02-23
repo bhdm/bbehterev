@@ -111,10 +111,50 @@ nav{
                     color: @color-orange;
                 }
             }
+            .submenu{
+                transition: visibility 0s, opacity 0.5s ease;
+                position: absolute;
+                //display: none;
+                visibility: hidden;
+                opacity: 0;
+                z-index: 55;
+                padding-top: 11px;
+                .submenu-items{
+                    background: #004889;
+                    padding: 5px 10px;
+                    width: 300px;
+                    //border-left: 1px solid #F15B23;
+                    //border-right: 1px solid #F15B23;
+                    //border-bottom: 1px solid #F15B23;
+                    li{
+                        &:not(:last-child){
+                            border-bottom: 1px solid #0b58a2;
+                        }
+                        &:last-child{
+                            border-bottom: 0;
+                        }
+                        background: #004889;
+                        text-align: left;
+                        display: block;
+                        padding: 5px;
+                        a{
+                            color: #FFFFFF;
+                            &:hover{
+                                color: @color-orange;
+                            }
+                        }
+                    }
+                }
+            }
+            &:hover .submenu{
+                visibility: visible;
+                opacity: 1;
+            }
 
         }
     }
 }
+
 
 
 

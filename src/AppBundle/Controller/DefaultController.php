@@ -42,4 +42,18 @@ class DefaultController extends Controller
     public function donateAction(){
         return [];
     }
+
+    /**
+     * роут для данного метода указывается в routing.yml что бы был без /page
+     * @Route("/page/{url}", name="page")
+     * @Template()
+     */
+    public function pageAction($url){
+        $page = $this->getDoctrine()->getRepository('AppBundle:Page')->findOneBy(['slug' => $url]);
+        if ($page === null){
+            throw $this->createNotFoundException('Данная страница не найдена');
+        }
+        return ['page' => $page];
+    }
+
 }

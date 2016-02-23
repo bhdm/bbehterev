@@ -22,11 +22,11 @@ class Country
 	protected $id;
 
 	/**
-	 * @ORM\OneToMany(targetEntity = "City", mappedBy = "country")
+	 * @ORM\OneToMany(targetEntity = "AppBundle\Entity\City", mappedBy = "country")
 	 */
 	protected $cities;
 
-	/** @ORM\OneToMany(targetEntity = "University", mappedBy = "country") */
+	/** @ORM\OneToMany(targetEntity = "AppBundle\Entity\University", mappedBy = "country") */
 	protected $universities;
 
 	/** @ORM\OneToMany(targetEntity = "Publication", mappedBy = "country") */
