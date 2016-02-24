@@ -1,0 +1,357 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets "@AppBundle/Resources/public/less/comments.less" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+    {% endstylesheets %}
+    <link href="{{ asset('assets/vendor/jquery-ui/themes/smoothness/jquery-ui.css') }}" type="text/css" rel="stylesheet" media="all" />
+    <link href="{{ asset('assets/vendor/jquery-ui/themes/smoothness/theme.css') }}" type="text/css" rel="stylesheet" media="all" />
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('assets/vendor/jquery-ui/jquery-ui.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $( ".hslider" ).slider({
+                range: "max",
+                min: 0,
+                max: 10,
+                value: 1,
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="blue-text">Индекс BASFI</h1>
+        <p style="color: #1B2B63; font-weight: bold">
+            С помощью индекса BASFI Вы можете самостоятельно контролировать изменение функции позвоночника и суставов и, в случае нарастания его показателей, вовремя обратиться к лечащему врачу для изменения лечения.
+            <br />
+            <br />
+            Индекс BASFI состоит из 10 вопросов, каждый из которых представлен в виде числовой шкалы от 0 до 10. Вы отмечаете ту цифру, которая, по Вашему мнению, наиболее точно отражает выраженность боли, скованности и т.д.
+            <br />
+            <br />
+            <span class="orange"><b>«0»</b></span> - это отсутствие ограничений, <br />
+            <span class="orange"><b>«5»</b></span> - умеренные ограничения,<br />
+            <span class="orange"><b>«10»</b></span> - невозможность выполнить определенное действие.<br />
+        </p>
+    </div>
+    <br />
+    <br />
+    <div class="row widget-test">
+        <div class="widget-test-title-box">
+            <div class="widget-test-title">
+                ИНДЕКС BASDAI
+            </div>
+            <div class="row widget-test-content">
+                <form class="form index-form">
+                    <div class="row">
+                        <br />
+                        <div class="col-xs-offset-3 col-xs-3 text-left">
+                            <b>УКАЖИТЕ СВОЙ ПОЛ</b>
+                            <br />
+                            <br />
+                            <input type="radio" name="gender" value="0"> <b>Мужчина</b> <br />
+                            <input type="radio" name="gender" value="1"> <b>Женщина</b>
+                        </div>
+                        <div class="col-xs-3 text-left">
+                            <b>УКАЖИТЕ СВОЙ ПОЛ</b>
+                            <br />
+                            <br />
+                            <input type="text" name="age" value="" class="form-control" s>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1 number">
+                            1
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы надеть носки или колготки без посторонней помощи или использования приспособлений, в течение последней недели?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            2
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы нагнуться вперед, чтобы поднять ручку с пола без использования приспособлений, в течение последней недели?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            3
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы дотянуться рукой до высоко расположенной полки без посторонней помощи или использования приспособлений, в течение последней недели?   </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            4
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы встать со стула без помощи рук и без посторонней помощи, в течение последней недели? </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            5
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы встать с пола из положения лежа на спине без посторонней помощи, в течение последней недели?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            6
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы стоять без дополнительной опоры в течение 10 минут, не ощущая дискомфорта, в течение последней недели?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            7
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы подняться вверх на 12-15 ступенек, не опираясь на перила или трость (опираясь одной ногой на каждую ступеньку), в течение последней недели?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            8
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы повернуть голову и посмотреть за спину, не поворачивая туловище, в течение последней недели?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            9
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы заниматься физически активными видами деятельности (например, физическими упражнениями, спортом, работой в саду), в течение последней недели?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            10
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Могли ли Вы поддерживать активность в течение всего дня (дома или на работе), в течение последней недели?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                </form>
+            </div>
+            <div class="widget-test-btn">
+                <div>
+                    <button class="btn btn-primary test-next">ПОЛУЧИИТЬ РЕЗУЛЬТАТ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <br />
+    <br />
+{% endblock %}

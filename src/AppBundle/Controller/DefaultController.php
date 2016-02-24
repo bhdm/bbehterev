@@ -56,4 +56,19 @@ class DefaultController extends Controller
         return ['page' => $page];
     }
 
+    /**
+     * @Route("/index-basdai", name="index-basdai")
+     * @Template()
+     */
+    public function index1Action(){
+        return [];
+    }
+
+    /**
+     * @Route("/index-basfi", name="index-basfi")
+     * @Template()
+     */
+    public function index2Action(){
+        return [];
+    }
 }

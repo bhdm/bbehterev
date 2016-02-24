@@ -10,11 +10,31 @@
 {% block content %}
     <div>
         <h1 class="blue-text">Новости</h1>
-        <div>
-        {% for n in news %}
-            {{ n.title }}
-            {{ n.body }}
-        {% endfor %}
+        <div style="padding-left: 50px">
+            {% for n in news %}
+                {% if n.preview.path is defined %}
+                <div class="new-item row">
+                    <div class="col-xs-3">
+                        <img src="{{ n.preview.path }}" class="img-thumbnail">
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="new-title"><span class="new-date">{{ n.created | date('d.m.Y') }}</span>
+                            <a href="{{ path('publications',{'url' : n.id }) }}">{{ n.title }}</a>
+                        </div>
+                        <div class="new-body">{{ n.body }}</div>
+                    </div>
+                </div>
+                {% else %}
+                    <div class="new-item row">
+                        <div class="col-xs-12">
+                            <div class="new-title"><span class="new-date">{{ n.created | date('d.m.Y') }}</span>
+                                <a href="{{ path('publications',{'url' : n.id }) }}">{{ n.title }}</a>
+                            </div>
+                            <div class="new-body">{{ n.body }}</div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
     <br />

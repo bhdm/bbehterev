@@ -1,0 +1,245 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets "@AppBundle/Resources/public/less/comments.less" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+    {% endstylesheets %}
+    <link href="{{ asset('assets/vendor/jquery-ui/themes/smoothness/jquery-ui.css') }}" type="text/css" rel="stylesheet" media="all" />
+    <link href="{{ asset('assets/vendor/jquery-ui/themes/smoothness/theme.css') }}" type="text/css" rel="stylesheet" media="all" />
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('assets/vendor/jquery-ui/jquery-ui.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $( ".hslider" ).slider({
+                range: "max",
+                min: 0,
+                max: 10,
+                value: 1,
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="blue-text">Индекс BASDAI</h1>
+        <p style="color: #1B2B63; font-weight: bold">
+            С помощью индекса BASFI Вы можете самостоятельно контролировать изменение функции позвоночника и суставов и, в случае нарастания его показателей, вовремя обратиться к лечащему врачу для изменения лечения.
+            <br />
+            <br />
+            Индекс BASDAI состоит из 6 вопросов, каждый из которых представлен в виде числовой шкалы от 0 до 10. Вы отмечаете ту цифру, которая, по Вашему мнению, наиболее точно отражает выраженность боли, скованности и т.д.
+            <br />
+            <br />
+            <span class="orange"><b>«0»</b></span> - это наилучшее состояние (отсутствие боли, скованности и т.д.), <br />
+            <span class="orange"><b>«5»</b></span> - умеренная боль/скованность и т.д.,<br />
+            <span class="orange"><b>«10»</b></span> - наихудшее состояние (очень сильная/нестерпимая боль и т.д.).<br />
+        </p>
+    </div>
+    <br />
+    <br />
+    <div class="row widget-test">
+        <div class="widget-test-title-box">
+            <div class="widget-test-title">
+                ИНДЕКС BASDAI
+            </div>
+            <div class="row widget-test-content">
+                <form class="form index-form">
+                    <div class="row">
+                        <br />
+                        <div class="col-xs-offset-3 col-xs-3 text-left">
+                            <b>УКАЖИТЕ СВОЙ ПОЛ</b>
+                            <br />
+                            <br />
+                            <input type="radio" name="gender" value="0"> <b>Мужчина</b> <br />
+                            <input type="radio" name="gender" value="1"> <b>Женщина</b>
+                        </div>
+                        <div class="col-xs-3 text-left">
+                            <b>УКАЖИТЕ СВОЙ ПОЛ</b>
+                            <br />
+                            <br />
+                            <input type="text" name="age" value="" class="form-control" s>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1 number">
+                            1
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px">Как бы Вы расценили уровень общей слабости (утомляемости) за последнюю неделю? </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            2
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Как бы Вы расценили уровень боли в шее, спине или тазобедренных суставах за последнюю неделю?  </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            3
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Как бы Вы расценили уровень боли (или степень припухлости) в суставах (помимо шеи, спины или тазобедренных суставов) за последнюю неделю?   </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            4
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px">  Как бы Вы расценили степень неприятных ощущений, возникающих при дотрагивании до каких-либо болезненных областей или давлении на них (за последнюю неделю)?</div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            5
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Как бы Вы расценили степень выраженности утренней скованности, возникающей после просыпания (за последнюю неделю)? </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-1  number">
+                            6
+                        </div>
+                        <div class="col-xs-8" style="padding-top: 12px">
+                            <div style="padding-bottom: 10px"> Как долго длится утренняя скованность, возникающая после просыпания (за последнюю неделю)? </div>
+                            <div class="hslider"></div>
+                            <div class="annotation">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                </form>
+            </div>
+            <div class="widget-test-btn">
+                <div>
+                    <button class="btn btn-primary test-next">ПОЛУЧИИТЬ РЕЗУЛЬТАТ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <br />
+    <br />
+{% endblock %}

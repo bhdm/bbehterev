@@ -21,8 +21,24 @@
         </div>
         <div class="widget-test-btn">
             <div>
-                <button class="btn btn-primary">ДАЛЕЕ</button>
+                <button class="btn btn-primary test-next">ДАЛЕЕ</button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var step = 1;
+        $('.test-next').click(function () {
+            var value = $('input[type=radio]:checked').val();
+            $.ajax({
+                url: Routing.generate('test',{'test': 'test-1','step' : step }),
+                data: value,
+                success: function(msg){
+                    $('.widget-test-content').html(msg);
+                }
+            })
+        });
+    });
+</script>

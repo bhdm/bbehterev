@@ -36,12 +36,6 @@ class Event
      */
     private $type;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
-     */
-    private $slug;
 
     /**
      * @var string
@@ -153,29 +147,6 @@ class Event
         return $this->title;
     }
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Event
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
 
     /**
      * Set body

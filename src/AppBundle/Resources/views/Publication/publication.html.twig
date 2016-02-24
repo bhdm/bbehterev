@@ -14,8 +14,12 @@
         {% endif %}
         <h1 class="blue-text">{{ publication.title }}</h1>
         {{ publication.body | raw }}
+        <br />
+        <br />
+        <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+        <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter" data-counter=""></div>
     </div>
-    <br />
     <br />
     {% if publication.isAllowCommentary == true %}
         {% include '@App/Publication/comments.html.twig'  with {'comments': publication.comments, 'id' : publication.id, 'type': 'publication' } %}

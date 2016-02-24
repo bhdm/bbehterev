@@ -24,8 +24,8 @@ class EventType extends AbstractType
             ->add('title', null, [ 'label' => 'Название'])
             ->add('type', ChoiceType::class, array(
                 'choices' => array(
-                    'EAT' => 'EAT',
-                    'Партнерcкое' => 'PARTNER'
+                    'ШКОЛА ДЛЯ ПАЦИЕНТОВ' => 'ШКОЛА ДЛЯ ПАЦИЕНТОВ',
+                    'МЕЖДУНАРОДНАЯ ДЕЯТЕЛЬНОСТЬ' => 'МЕЖДУНАРОДНАЯ ДЕЯТЕЛЬНОСТЬ'
                 ),
                 'required'    => true,
                 'label' => 'Тип мероприятия'
@@ -36,7 +36,6 @@ class EventType extends AbstractType
             ->add('adrs', null, [ 'label' => 'Адрес'])
             ->add('start', DateType::class, [ 'label' => 'Дата начала'])
             ->add('end',  DateType::class, [ 'label' => 'Дата окончания'])
-            ->add('slug', null, [ 'label' => 'URI'])
             ->add('body', null, [ 'label' => 'Контент', 'attr' => ['class' => 'ckeditor']])
             ->add('enabled', ChoiceType::class, array(
                 'choices' => array(

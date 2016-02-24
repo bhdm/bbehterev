@@ -33,7 +33,7 @@ class WidgetController extends Controller
     }
 
     /**
-     * @Route("/widget-test/{test}/{step}", defaults={"step" = 1}, options={"expose"=true})
+     * @Route("/widget-test/{test}/{step}", name="test", defaults={"step" = 1}, options={"expose"=true})
      * @Template()
      */
     public function testAction(Request $request, $test = 'test-1', $step = null){
