@@ -55,12 +55,12 @@ class PublicationController extends Controller
     }
 
     /**
-     * @Route("events", name="events")
+     * @Route("events/{type}", name="events")
      * @Template("AppBundle:Publication:eventList.html.twig")
      */
-    public function eventListAction(Request $request)
+    public function eventListAction(Request $request, $type)
     {
-        $events = $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(['enabled' => true],['start' => 'DESC']);
+        $events = $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(['enabled' => true, 'type' => $type ],['start' => 'DESC']);
         return ['events' => $events];
     }
 
@@ -103,5 +103,15 @@ class PublicationController extends Controller
         $session->getFlashBag()->add('notice', 'Ваш комментарий оставлен');
         $referer = $request->headers->get('referer');
         return $this->redirect($referer);
+    }
+
+    /**
+     * @Route("/publication/{category}", name="publication_category")
+     * @Template()
+     */
+    public function publicationCategoryAction($category){
+        $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBy(['slug' => $category]);
+        $publications = $this->getDoctrine()->getRepository('AppBundle:Publication')->findBy(['category' => $category]);
+        return ['publications' => $publications, 'category' => $category];
     }
 }

@@ -1,0 +1,107 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets "@AppBundle/Resources/public/less/comments.less" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+        <script>
+            ymaps.ready(init);
+
+            function init() {
+
+                // Создание экземпляра карты.
+                var myMap = new ymaps.Map('map', {
+                            center: [50.443705, 30.530946],
+                            zoom: 14
+                        }, {
+                            searchControlProvider: 'yandex#search'
+                        }),
+                // Контейнер для меню.
+                        menu = $('<ul class="menu"></ul>');
+
+                var groups = [
+                    {
+                        name: "df",
+                        style: "islands#redIcon",
+                        items: [
+                            {
+                                center: [50.426472, 30.563022],
+                                name: "f"
+                            }
+
+                        ]}
+                ];
+//                https://tech.yandex.ru/maps/jsbox/2.1/object_list
+                for (var i = 0, l = groups.length; i < l; i++) {
+                    createMenuGroup(groups[i]);
+                }
+
+                function createMenuGroup (group) {
+                    // Пункт меню.
+                    var menuItem = $('<li><a href="#">' + group.name + '</a></li>'),
+                    // Коллекция для геообъектов группы.
+                            collection = new ymaps.GeoObjectCollection(null, { preset: group.style }),
+                    // Контейнер для подменю.
+                            submenu = $('<ul class="submenu"></ul>');
+
+                    // Добавляем коллекцию на карту.
+                    myMap.geoObjects.add(collection);
+
+                    // Добавляем подменю.
+                    menuItem
+                            .append(submenu)
+                            // Добавляем пункт в меню.
+                            .appendTo(menu)
+                            // По клику удаляем/добавляем коллекцию на карту и скрываем/отображаем подменю.
+                            .find('a')
+                            .toggle(function () {
+                                myMap.geoObjects.remove(collection);
+                                submenu.hide();
+                            }, function () {
+                                myMap.geoObjects.add(collection);
+                                submenu.show();
+                            });
+                    for (var j = 0, m = group.items.length; j < m; j++) {
+                        createSubMenu(group.items[j], collection, submenu);
+                    }
+                }
+
+                function createSubMenu (item, collection, submenu) {
+                    // Пункт подменю.
+                    var submenuItem = $('<li><a href="#">' + item.name + '</a></li>'),
+                    // Создаем метку.
+                            placemark = new ymaps.Placemark(item.center, { balloonContent: item.name });
+
+                    // Добавляем метку в коллекцию.
+                    collection.add(placemark);
+                    // Добавляем пункт в подменю.
+                    submenuItem
+                            .appendTo(submenu)
+                            // При клике по пункту подменю открываем/закрываем баллун у метки.
+                            .find('a')
+                            .toggle(function () {
+                                placemark.balloon.open();
+                            }, function () {
+                                placemark.balloon.close();
+                            });
+                }
+
+                // Добавляем меню в тэг BODY.
+                menu.appendTo($('body'));
+                // Выставляем масштаб карты чтобы были видны все группы.
+                myMap.setBounds(myMap.geoObjects.getBounds());
+            }
+        </script>
+        <h1 class="blue-text">Региональные отделения</h1>
+        <br />
+        <div id="map" style="width: 100%; height: 400px"></div>
+    </div>
+    <br />
+    <br />
+{% endblock %}

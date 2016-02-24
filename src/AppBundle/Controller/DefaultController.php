@@ -71,4 +71,15 @@ class DefaultController extends Controller
     public function index2Action(){
         return [];
     }
+
+
+    /**
+     * @Route("/otdeleniya", name="otdeleniya")
+     * @Template()
+     */
+    public function otdeleniyaAction(){
+        return [];
+    }
+
+
 }

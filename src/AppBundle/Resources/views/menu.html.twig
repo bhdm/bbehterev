@@ -17,12 +17,12 @@
                 <a href="#">Об организации</a>
                 <div class="submenu">
                     <ul class="submenu-items">
-                        <li><a href="#">Цели и задачи</a></li>
-                        <li><a href="#">Региональные отделения</a></li>
+                        <li><a href="{{ path('page',{'url' : 'celi-i-zadachi'}) }}">Цели и задачи</a></li>
+                        <li><a href="{{ path('otdeleniya') }}">Региональные отделения</a></li>
                         <li><a href="#">Мы в социальных сетях</a></li>
-                        <li><a href="#">Пресса о нас</a></li>
-                        <li><a href="#">Пожертвования</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li><a href="{{ path('publication_category', {'category' : 'pressa_o_nas'}) }}">Пресса о нас</a></li>
+                        <li><a href="{{ path('donate') }}">Пожертвования</a></li>
+                        <li><a href="{{ path('page',{'url' : 'contacts'}) }}">Контакты</a></li>
                     </ul>
                 </div>
             </li>
@@ -31,8 +31,8 @@
                 <a href="#">Мероприятия</a>
                 <div class="submenu">
                     <ul class="submenu-items">
-                        <li><a href="#">Школа для пациентов</a></li>
-                        <li><a href="#">Международная деятельность</a></li>
+                        <li><a href="{{ path('events',{'type' : 1 }) }}">Школа для пациентов</a></li>
+                        <li><a href="{{ path('events',{'type' : 2 })}}">Международная деятельность</a></li>
                     </ul>
                 </div>
             </li>
@@ -49,8 +49,8 @@
                 <a href="#">Лечебная физкультура</a>
                 <div class="submenu">
                     <ul class="submenu-items">
-                        <li><a href="#">Методика</a></li>
-                        <li><a href="#">Видеоуроки</a></li>
+                        <li><a href="{{ path('page',{'url' : 'metodics'}) }}">Методика</a></li>
+                        <li><a href="{{ path('page',{'url' : 'video'}) }}">Видеоуроки</a></li>
                     </ul>
                 </div>
             </li>
