@@ -102,6 +102,7 @@ class Publication
         $this->allowCommentary = true;
         $this->enabled = true;
         $this->created = new \DateTime();
+        $this->video = array();
         $this->preview = array();
         $this->specialties = new ArrayCollection();
         $this->comments = new ArrayCollection();
