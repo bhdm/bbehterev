@@ -18,19 +18,21 @@
                         <img src="{{ n.preview.path }}" class="img-thumbnail">
                     </div>
                     <div class="col-xs-9">
-                        <div class="new-title"><span class="new-date">{{ n.created | date('d.m.Y') }}</span>
+                        <div class="new-title">
                             <a href="{{ path('publications',{'url' : n.id }) }}">{{ n.title }}</a>
                         </div>
-                        <div class="new-body">{{ n.body }}</div>
+                        <div class="new-body">{{ n.anons }}</div>
+                        <span class="new-date">{{ n.created | date('d.m.Y') }}</span>
                     </div>
                 </div>
                 {% else %}
                     <div class="new-item row">
                         <div class="col-xs-12">
-                            <div class="new-title"><span class="new-date">{{ n.created | date('d.m.Y') }}</span>
+                            <div class="new-title">
                                 <a href="{{ path('publications',{'url' : n.id }) }}">{{ n.title }}</a>
                             </div>
-                            <div class="new-body">{{ n.body }}</div>
+                            <div class="new-body">{{ n.anons }}</div>
+                            <span class="new-date">{{ n.created | date('d.m.Y') }}</span>
                         </div>
                     </div>
                 {% endif %}

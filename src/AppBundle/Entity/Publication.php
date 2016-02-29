@@ -44,6 +44,13 @@ class Publication
     private $body;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="anons", type="text", nullable=true)
+     */
+    private $anons;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="preview", type="array")
@@ -317,6 +324,22 @@ class Publication
     public function setVideo($video)
     {
         $this->video = $video;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAnons()
+    {
+        return $this->anons;
+    }
+
+    /**
+     * @param string $anons
+     */
+    public function setAnons($anons)
+    {
+        $this->anons = $anons;
     }
 
 
