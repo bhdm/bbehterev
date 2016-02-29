@@ -27,7 +27,7 @@
             <div class="news-block">
                 {% for v in videos %}
                     <div class="news-item text-right">
-                        <a href="{{ path('publications',{'url': p.slug }) }}">{{ p.title }}</a>
+                        <a href="{{ path('publications',{'url': v.slug }) }}">{{ v.title }}</a>
                     </div>
                     <br />
                 {% endfor %}
