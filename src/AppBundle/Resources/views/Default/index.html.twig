@@ -27,7 +27,7 @@
             <div class="news-block">
                 {% for v in videos %}
                     <div class="news-item text-right">
-                        <a href="#"><img src="{{ base_url~v.video.path }}"></a>
+                        <a href="#"><img src="{{ v.video.path }}"></a>
                     </div>
                     <br />
                 {% endfor %}
