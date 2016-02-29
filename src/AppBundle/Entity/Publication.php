@@ -51,6 +51,14 @@ class Publication
     private $preview;
 
     /**
+     * @var array
+     *
+     * @ORM\Column(name="video", type="array")
+     */
+    private $video;
+
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="enabled", type="boolean", nullable=true)
@@ -292,6 +300,22 @@ class Publication
     public function setAllowCommentary($allowCommentary)
     {
         $this->allowCommentary = $allowCommentary;
+    }
+
+    /**
+     * @return array
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * @param array $video
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
     }
 
 
