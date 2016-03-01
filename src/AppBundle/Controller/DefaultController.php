@@ -60,6 +60,14 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/testirovanie", name="testirovanie")
+     * @Template()
+     */
+    public function testAction(){
+        return [];
+    }
+
+    /**
      * @Route("/index-basdai", name="index-basdai")
      * @Template()
      */
@@ -83,6 +91,5 @@ class DefaultController extends Controller
     public function otdeleniyaAction(){
         return [];
     }
-
 
 }

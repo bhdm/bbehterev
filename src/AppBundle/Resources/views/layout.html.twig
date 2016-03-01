@@ -85,12 +85,12 @@
             </div>
         <br />
 
-        {% if app.request.attributes.get('_route') == 'homepage' %}
-            <br />
-            {% include "@App/Widget/test.html.twig" %}
-            <br />
-            <br />
-        {% endif %}
+        {#{% if app.request.attributes.get('_route') == 'homepage' %}#}
+            {#<br />#}
+            {#{% include "@App/Widget/test.html.twig" %}#}
+            {#<br />#}
+            {#<br />#}
+        {#{% endif %}#}
         <div class="content">
             {% block fullContent %}{% block content %}{% endblock %}{% endblock %}
         </div>
