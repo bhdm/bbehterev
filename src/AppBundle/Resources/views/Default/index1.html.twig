@@ -19,7 +19,30 @@
                 min: 0,
                 max: 10,
                 value: 1,
+                slide: function( event, ui ) {
+                    var x = 0;
+                    for (var i = 0 ; i < 6 ; i ++){
+                        x = x+ $('.hslider').eq(i).slider("option", "value");
+                        console.log(x);
+                    }
+                    console.log(x);
+                    $( "#balls" ).val( x );
+                }
             });
+
+            $('.test-next').click(function(){
+                var x = 0;
+                for (var i = 0 ; i < 6 ; i ++){
+                    if (i >= 4){
+                        x = x+ ($('.hslider').eq(i).slider("option", "value")/2);
+                    }else{
+                        x = x+ $('.hslider').eq(i).slider("option", "value");
+                    }
+                    console.log(x);
+                }
+                $( "#balls" ).val( x );
+                return true;
+            })
         })
     </script>
 {% endblock %}
@@ -27,13 +50,39 @@
 {% block content %}
     <div>
         <h1 class="blue-text">Индекс BASDAI</h1>
-        <p style="color: #1B2B63; font-weight: bold">
-            С помощью индекса BASFI Вы можете самостоятельно контролировать изменение функции позвоночника и суставов и, в случае нарастания его показателей, вовремя обратиться к лечащему врачу для изменения лечения.
+        <p style="color: #222; font-weight: bold">
+            Для оценки активности и определения нарушения функции позвоночника и суставов при болезни Бехтерева
+            (анкилозирующий спондилит) используются индексы BASDAI (<b>B</b>ath <b>A</b>nkylosing <b>S</b>pondylitis
+            <b>D</b>isease <b>A</b>ctivity <b>I</b>ndex) и BASFI (<b>B</b>ath <b>A</b>nkylosing <b>S</b>pondylitis
+            <b>D</b>isease <b>A</b>ctivity <b>I</b>ndex).
             <br />
             <br />
-            Индекс BASDAI состоит из 6 вопросов, каждый из которых представлен в виде числовой шкалы от 0 до 10. Вы отмечаете ту цифру, которая, по Вашему мнению, наиболее точно отражает выраженность боли, скованности и т.д.
-            <br />
-            <br />
+            Эти индексы были разработаны в английском городе Бат (Bath) в 1994 году группой исследователей, состоящей из
+            ревматологов, физиотерапевтов и других специалистов, которые изучают это заболевание.
+        </p>
+        <br />
+        <b style="font-size: 17px">Почему Вы должны использовать эти индексы?</b><br />
+        <ul style="padding-left: 50px;color: #222;">
+            <li>1. С помощью индекса <b>BASDAI</b> Вы можете самостоятельно контролировать активность своего заболевания и
+                в случае нарастания его показателей вовремя обратиться к лечащему врачу для изменения лечения.</li>
+            <li>2. С помощью индекса <b>BASFI</b> Вы можете самостоятельно контролировать изменение функции позвоночника и
+                суставов и в случае нарастания его показателей вовремя обратиться к лечащему врачу для изменения лечения.</li>
+        </ul>
+        <p style="color: #222;">
+            Таким образом,  еженедельно оценивая два этих индекса, Вы сможете понять нуждаетесь ли Вы во внеплановой консультации лечащего врача, а также эффективно лечение, которое Вы получаете или нет.
+        </p>
+        <br />
+        <b style="font-size: 17px">Преимущества использования этих индексов:</b>
+        <ul style="padding-left: 50px; color: #222;">
+            <li>быстрота и простота заполнения и подсчета;</li>
+            <li>возможность самостоятельного контроля активности заболевания и функциональных нарушений.</li>
+        </ul>
+        <p style="color: #222;">
+            <b>Индекс BASDAI.</b> Это комбинированный индекс, состоящий из оценки утомляемости, боли в позвоночнике и тазобедренных
+            суставах, боли и припухлости суставов, болей в области энтезов – мест прикрепления сухожилий и связок к суставным
+            поверхностям костей (например: в области грудины, пятки),  выраженности и длительности скованности в позвоночнике по утрам.
+        </p>
+        <p>
             <span class="orange"><b>«0»</b></span> - это наилучшее состояние (отсутствие боли, скованности и т.д.), <br />
             <span class="orange"><b>«5»</b></span> - умеренная боль/скованность и т.д.,<br />
             <span class="orange"><b>«10»</b></span> - наихудшее состояние (очень сильная/нестерпимая боль и т.д.).<br />
@@ -41,21 +90,25 @@
     </div>
     <br />
     <br />
+    {% if msg != null %}
+        <div class="alert alert-info">{{ msg }}</div>
+        <br />
+    {% endif %}
     <div class="row widget-test">
         <div class="widget-test-title-box">
             <div class="widget-test-title">
                 ИНДЕКС BASDAI
             </div>
-            <div class="row widget-test-content">
-                <form class="form index-form">
+            <form class="form index-form" method="POST">
+                <div class="row widget-test-content">
                     <div class="row">
                         <br />
                         <div class="col-xs-offset-3 col-xs-3 text-left">
                             <b>УКАЖИТЕ СВОЙ ПОЛ</b>
                             <br />
                             <br />
-                            <input type="radio" name="gender" value="0"> <b>Мужчина</b> <br />
-                            <input type="radio" name="gender" value="1"> <b>Женщина</b>
+                            <input type="radio" name="gender" value="1" checked> <b>Мужчина</b> <br />
+                            <input type="radio" name="gender" value="0"> <b>Женщина</b>
                         </div>
                         <div class="col-xs-3 text-left">
                             <b>УКАЖИТЕ СВОЙ ПОЛ</b>
@@ -228,13 +281,14 @@
                     </div>
                     <br />
                     <br />
-                </form>
-            </div>
-            <div class="widget-test-btn">
-                <div>
-                    <button class="btn btn-primary test-next">ПОЛУЧИИТЬ РЕЗУЛЬТАТ</button>
                 </div>
-            </div>
+                <div class="widget-test-btn">
+                    <div>
+                        <button class="btn btn-primary test-next">ПОЛУЧИИТЬ РЕЗУЛЬТАТ</button>
+                    </div>
+                </div>
+                <input type="hidden" name="balls" id="balls" value="6">
+            </form>
         </div>
     </div>
     <br />

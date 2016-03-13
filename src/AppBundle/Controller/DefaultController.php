@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\IndexLog;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -71,16 +72,57 @@ class DefaultController extends Controller
      * @Route("/index-basdai", name="index-basdai")
      * @Template()
      */
-    public function index1Action(){
-        return [];
+    public function index1Action(Request $request){
+        $msg = null;
+        if ($request->getMethod() === 'POST'){
+            $log = new IndexLog();
+            $log->setType('basdai');
+            $log->setGender($request->request->get('gender'));
+            $log->setAge($request->request->get('age'));
+            $log->setBall($request->request->get('balls')/5);
+            $this->getDoctrine()->getManager()->persist($log);
+            $this->getDoctrine()->getManager()->flush($log);
+            $balls = $request->request->get('balls');
+            $balls = $balls/5;
+            if ($balls < 4){
+                $msg = 'Активность заболевания – низкая';
+            }
+            if ($balls >= 4){
+                $msg = 'Активность заболевания – высокая. Если результат индекса увеличился на 20% по сравнению с предыдущей его оценкой, необходимо обратиться к лечащему врачу для изменения терапии.';
+            }
+        }
+
+        return ['msg' => $msg];
     }
 
     /**
      * @Route("/index-basfi", name="index-basfi")
      * @Template()
      */
-    public function index2Action(){
-        return [];
+    public function index2Action(Request $request){
+        $msg = null;
+        if ($request->getMethod() === 'POST'){
+            $log = new IndexLog();
+            $log->setType('basfi');
+            $log->setGender($request->request->get('gender'));
+            $log->setAge($request->request->get('age'));
+            $log->setBall($request->request->get('balls')/10);
+            $this->getDoctrine()->getManager()->persist($log);
+            $this->getDoctrine()->getManager()->flush($log);
+            $balls = $request->request->get('balls');
+            $balls = $balls/10;
+            if ($balls == 0){
+                $msg = 'у Вас нет функциональных нарушений';
+            }elseif ($balls <= 5){
+                $msg = 'у Вас умеренные функциональные ограничения';
+            }else{
+                $msg = 'Функциональные нарушения – выраженные. Чем ближе результаты оценки индекса к «10», тем хуже
+                функция позвоночника и суставов. Если результат индекса увеличился на 20% по сравнению с предыдущей
+                его оценкой, необходимо обратиться к лечащему врачу для изменения терапии.';
+            }
+        }
+
+        return ['msg' => $msg];
     }
 
 
