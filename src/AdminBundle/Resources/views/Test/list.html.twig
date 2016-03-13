@@ -1,0 +1,32 @@
+{% extends "AdminBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb well">
+        <li><a href="{{ path('admin_main') }}">Домой</a> <span class="divider"></span></li>
+        <li class="active">Статистика <span class="divider"></span></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="well">
+        <table class="table">
+            <tr>
+                <th>Дата</th>
+                <th>Тест</th>
+                <th>Пол</th>
+                <th>Возраст</th>
+                <th>Кол-во баллов</th>
+            </tr>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.created | date('d.m.Y') }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.gender == 1 ? 'Мужской' : 'Женский' }}</td>
+                    <td>{{ item.age  }}</td>
+                    <td>{{ item.ball }}</td>
+
+                </tr>
+            {% endfor%}
+        </table>
+    </div>
+{% endblock %}

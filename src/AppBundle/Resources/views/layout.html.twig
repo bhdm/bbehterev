@@ -106,9 +106,22 @@
                 <img src="{{ asset('bundles/app/imgs/gp.png') }}">
                 <img src="{{ asset('bundles/app/imgs/fb.png') }}">
             </div>
+            <br />
+            <table style="margin: 0 auto;">
+                <tr>
+                    <td rowspan="2" style="vertical-align: bottom; padding-right: 5px"><img src="{{ asset('bundles/app/imgs/mail.png') }}"></td>
+                    <td style="font-size: 12px; text-align: center">info@bbehtereva.ru</td>
+                    {#<td style="font-size: 12px; text-align: center"><a href="mailto:info@bbehtereva.ru">info@bbehtereva.ru</a></td>#}
+                </tr>
+                <tr>
+                    <td colspan="2" style="">
+                        <button class="btn btn-info">НАПИСАТЬ</button>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="col-xs-4 text-center" >
-            <table>
+            <table style="margin: 0 auto;">
                 <tr>
                     <td><img src="{{ asset('bundles/app/imgs/hearth.png') }}"></td>
                     <td class="text-uppercase">ПОМОГИ<br />СЕЙЧАС</td>
@@ -121,19 +134,15 @@
             </table>
         </div>
         <div class="col-xs-4">
-            <br />
-            <table>
-                <tr>
-                    <td rowspan="2" style="vertical-align: bottom; padding-right: 5px"><img src="{{ asset('bundles/app/imgs/mail.png') }}"></td>
-                    <td style="font-size: 12px; text-align: center">info@bbehtereva.ru</td>
-                    {#<td style="font-size: 12px; text-align: center"><a href="mailto:info@bbehtereva.ru">info@bbehtereva.ru</a></td>#}
-                </tr>
-                <tr>
-                    <td colspan="2" style="">
-                        <button class="btn btn-info">НАПИСАТЬ</button>
-                    </td>
-                </tr>
-            </table>
+            <ul  class="footer-ul">
+                <li><a href="{{ path('homepage') }}">ГЛАВНАЯ</a></li>
+                <li><a href="{{ path('page',{'url' : 'contacts'}) }}">О НАС</a></li>
+                <li><a href="{{ path('news') }}">НОВОСТИ</a></li>
+                <li><a href="{{ path('events',{'type' : 1 }) }}">МЕРОПРИЯТИЯ</a></li>
+                <li><a href="{{ path('index-basdai') }}">ИНДЕКС BASDAI</a></li>
+                <li><a href="{{ path('index-basfi') }}">ИНДЕКС BASFI</a></li>
+                <li><a href="{{ path('page',{'url' : 'video'}) }}">ЛЕЧЕБНАЯ ФИЗКУЛЬТУРА</a></li>
+            </ul>
         </div>
     </footer>
 </div>

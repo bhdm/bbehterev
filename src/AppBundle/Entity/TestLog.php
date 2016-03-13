@@ -141,6 +141,14 @@ class TestLog
         $this->test = $test;
     }
 
+    /**
+     * @param mixed $test
+     */
+    public function setType($test)
+    {
+        $this->test = $test;
+    }
+
 
 }
 
