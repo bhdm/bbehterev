@@ -237,7 +237,7 @@ footer {
 }
 .owl-prev {
   position: absolute;
-  top: 50%;
+  top: 110px;
   margin-top: -15px;
   width: 30px;
   height: 30px;
@@ -255,7 +255,7 @@ footer {
 }
 .owl-next {
   position: absolute;
-  top: 50%;
+  top: 110px;
   margin-top: -15px;
   width: 30px;
   height: 30px;
@@ -348,7 +348,7 @@ table.table-th-bold tr th {
 }
 .flat-item > img {
   display: block;
-  padding: 5px;
+  padding: 6px;
   width: 100%;
   filter: contrast(0.5);
   /* снижает контрастность наполовину */
@@ -393,6 +393,8 @@ table.table-th-bold tr th {
   text-align: left;
   color: #001A64;
   font-size: 18px;
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 10px;
 }
 .widget-test .widget-test-title-box .widget-test-content .question ul li {
   font-size: 16px;
@@ -461,4 +463,13 @@ table.table-th-bold tr th {
 }
 .yt-lightbox.curved.image-left {
   display: inline-block;
+}
+.slider {
+  height: 240px;
+  overflow: hidden;
+}
+.footer-ul li a {
+  color: #FFF;
+  font-size: 13px;
+  line-height: 18px;
 }
