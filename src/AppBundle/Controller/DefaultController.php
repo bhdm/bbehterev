@@ -117,8 +117,7 @@ class DefaultController extends Controller
                 $msg = 'у Вас умеренные функциональные ограничения';
             }else{
                 $msg = 'Функциональные нарушения – выраженные. Чем ближе результаты оценки индекса к «10», тем хуже
-                функция позвоночника и суставов. Если результат индекса увеличился на 20% по сравнению с предыдущей
-                его оценкой, необходимо обратиться к лечащему врачу для изменения терапии.';
+                функция позвоночника и суставов. ';
             }
         }
 
@@ -131,6 +130,14 @@ class DefaultController extends Controller
      * @Template()
      */
     public function otdeleniyaAction(){
+        return [];
+    }
+
+    /**
+     * @Route("/feedback", name="feedback")
+     * @Template()
+     */
+    public function feedbackAction(){
         return [];
     }
 

@@ -65,7 +65,12 @@
     <br />
     <br />
     {% if msg != null %}
-        <div class="alert alert-info">{{ msg }}</div>
+        <div class="alert alert-info">
+            {{ msg }}
+            <br />
+            Если результат индекса увеличился на <b>20%</b> по сравнению с предыдущей его оценкой, необходимо обратиться к лечащему врачу для изменения терапии.
+            Пройти тест BASDAI <a href="{{ path('index-basdai') }}">еще раз</a>.
+        </div>
         <br />
     {% endif %}
     <div class="row widget-test">
@@ -258,7 +263,7 @@
                 </div>
                 <div class="widget-test-btn">
                     <div>
-                        <button class="btn btn-primary test-next">ПОЛУЧИИТЬ РЕЗУЛЬТАТ</button>
+                        <button class="btn btn-primary test-next">ПОЛУЧИТЬ РЕЗУЛЬТАТ</button>
                     </div>
                 </div>
                 <input type="hidden" name="balls" id="balls" value="6">
