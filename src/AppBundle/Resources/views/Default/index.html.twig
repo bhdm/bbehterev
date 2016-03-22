@@ -39,7 +39,7 @@
                 {% for p in publications %}
                 <div class="new-item">
                     <div class="new-title">
-                        <a href="{{ path('publications',{'url': p.slug }) }}">{{ p.title }}</a>
+                        <a href="{{ path('publications',{'url': p.id }) }}">{{ p.title }}</a>
                     </div>
                     <div class="new-params">{{ p.created | date('d.m.Y') }}</div>
                     <div class="new-desc">
