@@ -1,33 +1,49 @@
 <div class="flat-box">
     <div class="flat-item">
-        <div style="top: 75px;">о болезни Бехтерева</div>
-        <img src="{{ asset('bundles/app/imgs/b1.png') }}" style="padding-left: 0">
+        <a href="{{ path('page',{'url' : 'about-1'}) }}">
+            <div style="top: 75px;">о болезни Бехтерева</div>
+            <img src="{{ asset('bundles/app/imgs/b1.png') }}" style="padding-left: 0">
+        </a>
     </div>
-    <div class="flat-item">
-        <div style="top: 45px;">лечение</div>
-        <img src="{{ asset('bundles/app/imgs/b2.png') }}">
-        <div style="top: 135px;">симптомы</div>
-        <img src="{{ asset('bundles/app/imgs/b3.png') }}" style="    margin-top: -5px;">
-    </div>
-    <div class="flat-item">
-        <div style="top: 75px; font-size: 15px">
-            физкультура
-        </div>
-        <img src="{{ asset('bundles/app/imgs/b4.png') }}">
-    </div>
-    <div class="flat-item">
+
+    <div class="flat-item" style="    margin-top: -5px;">
         <div style="top: 45px;">
-            У женщин
+            <a href="{{ path('page', {'url' : 'treatment' }) }}">лечение</a>
+        </div>
+        <img src="{{ asset('bundles/app/imgs/b2.png') }}">
+        <div style="top: 135px;">
+            <a href="{{ path('page', {'url' : 'symptom' }) }}">симптомы</a>
+        </div>
+        <img src="{{ asset('bundles/app/imgs/b3.png') }}" style="    margin-top: -5px;">
+
+    </div>
+    <div class="flat-item">
+        <a href="{{ path('page',{'url' : 'metodics'}) }}">
+            <div style="top: 75px; font-size: 15px">
+                физкультура
+            </div>
+            <img src="{{ asset('bundles/app/imgs/b4.png') }}">
+        </a>
+    </div>
+    <div class="flat-item" style="    margin-top: -5px;">
+        <div style="top: 45px;">
+            <a href="{{ path('page',{'url' : 'among-women'}) }}">
+                У женщин
+            </a>
         </div>
         <div style="top: 130px;">
-            У мужчин
+            <a href="{{ path('page',{'url' : 'among-man'}) }}">
+                У мужчин
+            </a>
         </div>
         <img src="{{ asset('bundles/app/imgs/b6.png') }}">
     </div>
     <div class="flat-item">
-        <div style="top: 75px;">
-            самостоятельный контроль
-        </div>
-        <img src="{{ asset('bundles/app/imgs/b5.png') }}" style="padding-right: 0">
+        <a href="{{ path('index-basdai') }}">
+            <div style="top: 75px;">
+                самостоятельный контроль
+            </div>
+            <img src="{{ asset('bundles/app/imgs/b5.png') }}" style="padding-right: 0">
+        </a>
     </div>
 </div>
