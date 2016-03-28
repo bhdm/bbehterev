@@ -141,4 +141,12 @@ class DefaultController extends Controller
         return [];
     }
 
+    /**
+     * Редирект для старых картинок
+     * @Route("/images/{url}")
+     */
+    public function oldImagesAction($url){
+        return $this->redirect('/images/'.$url);
+    }
+
 }

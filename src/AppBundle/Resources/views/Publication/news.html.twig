@@ -15,13 +15,17 @@
                 {% if n.preview.path is defined %}
                 <div class="new-item row">
                     <div class="col-xs-3">
-                        <img src="{{ n.preview.path }}" class="img-thumbnail">
+                        {% if n.preview.path[0] != '/' %}
+                            <img src="/{{ n.preview.path }}" class="img-thumbnail">
+                        {% else %}
+                            <img src="{{ n.preview.path }}" class="img-thumbnail">
+                        {% endif %}
                     </div>
                     <div class="col-xs-9">
                         <div class="new-title">
                             <a href="{{ path('publications',{'url' : n.id }) }}">{{ n.title }}</a>
                         </div>
-                        <div class="new-body">{{ n.anons }}</div>
+                        <div class="new-body">{{ n.anons | raw }}</div>
                         <span class="new-date">{{ n.created | date('d.m.Y') }}</span>
                     </div>
                 </div>
@@ -31,7 +35,7 @@
                             <div class="new-title">
                                 <a href="{{ path('publications',{'url' : n.id }) }}">{{ n.title }}</a>
                             </div>
-                            <div class="new-body">{{ n.anons }}</div>
+                            <div class="new-body">{{ n.anons | raw  }}</div>
                             <span class="new-date">{{ n.created | date('d.m.Y') }}</span>
                         </div>
                     </div>

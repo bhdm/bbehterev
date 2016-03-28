@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ path('homepage') }}">Главная</a></li>
+            <li {{ app.request.attributes.get('_route') == 'homepage' ? 'class="active"' : ''}}><a href="{{ path('homepage') }}">Главная</a></li>
             <li>
                 <a href="#">Об организации</a>
                 <div class="submenu">
@@ -26,8 +26,8 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="{{ path('news') }}">Новости</a></li>
-            <li>
+            <li {{ app.request.attributes.get('_route') == 'news' ? 'class="active"' : ''}}><a href="{{ path('news') }}">Новости</a></li>
+            <li {{ app.request.attributes.get('_route') == 'events'  ? 'class="active"' : ''}}>
                 <a href="#">Мероприятия</a>
                 <div class="submenu">
                     <ul class="submenu-items">
@@ -36,7 +36,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
+            <li {{ app.request.attributes.get('_route') == 'index-basdai' or app.request.attributes.get('_route') == 'index-basfi'  ? 'class="active"' : ''}}>
                 <a href="#">Самодиагностика</a>
                 <div class="submenu">
                     <ul class="submenu-items">
@@ -45,7 +45,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
+            <li {{ app.request.get('url') == 'metodics' or app.request.get('url') == 'video'  ? 'class="active"' : ''}}>
                 <a href="#">Лечебная физкультура</a>
                 <div class="submenu">
                     <ul class="submenu-items">
