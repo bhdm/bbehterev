@@ -149,4 +149,12 @@ class DefaultController extends Controller
         return $this->redirect('/images/'.$url);
     }
 
+    /**
+     * @ROute("/search", name="search")
+     */
+    public function searchAction(Request $request){
+        $news = $this->getDoctrine()->getRepository('AppBundle:Publication')->search($request->query->get('search'));
+        return ['news' => $news, 'search' => $request->query->get('search')];
+    }
+
 }

@@ -29,12 +29,6 @@ class Publication
      */
     private $title;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
-     */
-    private $slug;
 
     /**
      * @var string
@@ -97,16 +91,10 @@ class Publication
      */
     private $comments;
 
-    /**
-     * @var boolean
-     * @ORM\Column(name="allowCommentary", type="boolean", nullable=true)
-     */
-    private $allowCommentary;
 
 
     public function __construct()
     {
-        $this->allowCommentary = true;
         $this->enabled = true;
         $this->created = new \DateTime();
         $this->video = array();
@@ -148,30 +136,6 @@ class Publication
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Publication
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 
     /**
@@ -262,21 +226,6 @@ class Publication
         $this->preview = $preview;
     }
 
-    /**
-     * @return Specialty
-     */
-    public function getSpecialties()
-    {
-        return $this->specialties;
-    }
-
-    /**
-     * @param Specialty $specialties
-     */
-    public function setSpecialties($specialties)
-    {
-        $this->specialties = $specialties;
-    }
 
     /**
      * @return Comment
@@ -294,21 +243,6 @@ class Publication
         $this->comments = $comments;
     }
 
-    /**
-     * @return boolean
-     */
-    public function isAllowCommentary()
-    {
-        return $this->allowCommentary;
-    }
-
-    /**
-     * @param boolean $allowCommentary
-     */
-    public function setAllowCommentary($allowCommentary)
-    {
-        $this->allowCommentary = $allowCommentary;
-    }
 
     /**
      * @return array

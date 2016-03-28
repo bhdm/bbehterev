@@ -40,7 +40,7 @@
                     <a href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/imgs/logo.png') }}" id="logo"></a>
                 </div>
                 <div class="col-xs-offset-2 col-xs-7 text-right">
-                    <form class="navbar-form navbar-right" role="search">
+                    <form class="navbar-form navbar-right" role="search" method="GET" action="{{ path('search') }}">
                         <div class="form-group">
                             <input type="text" class="form-control" id="search" placeholder="Введите запрос поиска">
                         </div>
