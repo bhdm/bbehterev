@@ -1,0 +1,48 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets "@AppBundle/Resources/public/less/comments.less" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="blue-text">Поиск по запросу "{{ search }}"</h1>
+        <div style="padding-left: 50px">
+            {% for n in news %}
+                {% if n.preview.path is defined %}
+                <div class="new-item row">
+                    <div class="col-xs-3">
+                        {% if n.preview.path[0] != '/' %}
+                            <img src="/{{ n.preview.path }}" class="img-thumbnail">
+                        {% else %}
+                            <img src="{{ n.preview.path }}" class="img-thumbnail">
+                        {% endif %}
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="new-title">
+                            <a href="{{ path('publications',{'url' : n.id }) }}">{{ n.title }}</a>
+                        </div>
+                        <div class="new-body">{{ n.anons | raw }}</div>
+                        <span class="new-date">{{ n.created | date('d.m.Y') }}</span>
+                    </div>
+                </div>
+                {% else %}
+                    <div class="new-item row">
+                        <div class="col-xs-12">
+                            <div class="new-title">
+                                <a href="{{ path('publications',{'url' : n.id }) }}">{{ n.title }}</a>
+                            </div>
+                            <div class="new-body">{{ n.anons | raw  }}</div>
+                            <span class="new-date">{{ n.created | date('d.m.Y') }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <br />
+    <br />
+{% endblock %}

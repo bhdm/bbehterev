@@ -150,7 +150,8 @@ class DefaultController extends Controller
     }
 
     /**
-     * @ROute("/search", name="search")
+     * @Route("/search", name="search")
+     * @Template("")
      */
     public function searchAction(Request $request){
         $news = $this->getDoctrine()->getRepository('AppBundle:Publication')->search($request->query->get('search'));
