@@ -45,8 +45,9 @@
             <div class="content-title text-center">Видеоуроки</div>
             <div class="news-block">
                 {% for v in videos %}
-                    <div class="news-item text-right">
+                    <div class="news-item text-center">
                         <a href="{{ path('publications',{'url': v.id }) }}">{{ v.title }}</a>
+                        <br />
                         <img src="{{ v.preview.path }}" class="img-thumbnail">
                     </div>
                     <br />
