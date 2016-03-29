@@ -50,7 +50,7 @@ class PublicationController extends Controller{
         if ($request->getMethod() == 'POST'){
             if ($formData->isValid()){
                 $item = $formData->getData();
-
+                $file = $item->getPreview();
                 if ($file){
                     $filename = time(). '.'.$file->guessExtension();
                     $file->move(
