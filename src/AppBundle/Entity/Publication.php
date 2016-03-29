@@ -58,6 +58,12 @@ class Publication
      */
     private $video;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="iframe", type="string", nullable=true)
+     */
+    private $iframe;
 
     /**
      * @var boolean
@@ -276,7 +282,39 @@ class Publication
         $this->anons = $anons;
     }
 
+    /**
+     * @return array
+     */
+    public function getIframe()
+    {
+        return $this->iframe;
+    }
 
+    /**
+     * @param array $iframe
+     */
+    public function setIframe($iframe)
+    {
+        $this->iframe = $iframe;
+    }
+
+    /**
+     * @return Specialty
+     */
+    public function getSpecialties()
+    {
+        return $this->specialties;
+    }
+
+    /**
+     * @param Specialty $specialties
+     */
+    public function setSpecialties($specialties)
+    {
+        $this->specialties = $specialties;
+    }
+
+    
 
 }
 

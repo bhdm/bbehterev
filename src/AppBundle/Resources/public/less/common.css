@@ -368,9 +368,12 @@ table.table-th-bold tr th {
   color: #FFF;
   text-transform: uppercase;
 }
+.menu-flat {
+  margin-top: 12px;
+}
 .flat-item > img {
   display: block;
-  padding: 6px;
+  padding: 6px 12px;
   width: 100%;
   filter: contrast(0.5);
   /* снижает контрастность наполовину */

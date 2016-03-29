@@ -24,6 +24,7 @@ class PublicationType extends AbstractType
             ->add('title', TextType::class, [ 'label' => 'Название'])
             ->add('preview', FileType::class, [ 'label' => 'Картинка', 'data_class' => null, 'required' => false])
             ->add('video', FileType::class, [ 'label' => 'Видео', 'data_class' => null, 'required' => false])
+            ->add('iframe', null, [ 'label' => 'iframe', 'required' => false])
             ->add('category', null, [ 'label' => 'Категория'])
 
             ->add('anons', TextareaType::class, [ 'label' => 'Контент'])
