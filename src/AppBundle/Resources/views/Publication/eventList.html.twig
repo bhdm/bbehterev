@@ -1,7 +1,7 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1 class="blue-text">{{ type.title }}</h1>
+    <h1 class="blue-text">{{ dump(type) }}</h1>
     <div>
         {% for p in events %}
             <div class="new-item">
