@@ -14,14 +14,15 @@
         <ul class="nav navbar-nav">
             <li {{ app.request.attributes.get('_route') == 'homepage' ? 'class="active"' : ''}}><a href="{{ path('homepage') }}">Главная</a></li>
             <li {{
-                app.request.pathInfo == 'celi-i-zadachi' or
+                app.request.pathInfo == '/celi-i-zadachi' or
                 app.request.pathInfo == '/contacts' or
+                app.request.pathInfo == '/about' or
                 app.request.attributes.get('_route') == 'otdeleniya' or
                 app.request.attributes.get('_route') == 'publication_category' or
                 app.request.attributes.get('_route') == 'donate' ? 'class="active"' : ''
 
             }}>
-                <a href="#">Об организации</a>
+                <a href="{{ path('page',{'url' : 'about'}) }}">Об организации</a>
                 <div class="submenu">
                     <ul class="submenu-items">
                         <li><a href="{{ path('page',{'url' : 'celi-i-zadachi'}) }}">Цели и задачи</a></li>
