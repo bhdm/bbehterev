@@ -27,7 +27,8 @@ class PublicationController extends Controller
      */
     public function newsAction(Request $request)
     {
-        $news = $this->getDoctrine()->getRepository('AppBundle:Publication')->findBy(['enabled' => true],['id' => 'DESC']);
+        $type = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBy(['slug' => 'news']);
+        $news = $this->getDoctrine()->getRepository('AppBundle:Publication')->findBy(['enabled' => true, 'category' => $type],['id' => 'DESC']);
         return ['news' => $news];
     }
 
