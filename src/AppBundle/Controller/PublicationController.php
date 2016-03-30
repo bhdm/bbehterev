@@ -61,7 +61,7 @@ class PublicationController extends Controller
     public function eventListAction(Request $request, $type)
     {
         $type = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBy(['slug' => $type]);
-        $events = $this->getDoctrine()->getRepository('AppBundle:Publication')->findBy(['enabled' => true, 'category' => $type ],['id' => 'DESC']);
+        $events = $this->getDoctrine()->getRepository('AppBundle:Publication')->findBy(['category' => $type ],['id' => 'DESC']);
         return ['events' => $events, 'type' => $type ];
     }
 
