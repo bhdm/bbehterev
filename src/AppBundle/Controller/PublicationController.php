@@ -52,6 +52,8 @@ class PublicationController extends Controller
     {
         $event = $this->getDoctrine()->getRepository('AppBundle:Publication')->findOneById($url);
         $t = preg_replace('/\[(\w+)(?!\w)[^\]]*\]((?:(?!\[\/\1).)*?)\[\/\1\]/i', ' \2 ', $event->getBody());
+        $t = preg_replace('/\[(\w+)(?!\w)[^\]]*\]((?:(?!\[\/\1).)*?)\[\/\1\]/i', ' \2 ', $t);
+        $t = preg_replace('/\[(\w+)(?!\w)[^\]]*\]((?:(?!\[\/\1).)*?)\[\/\1\]/i', ' \2 ', $t);
         $event->setBody($t);
         return ['publication' => $event];
     }
