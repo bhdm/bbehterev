@@ -48,7 +48,9 @@
                     <div class="news-item text-center">
                         <a href="{{ path('publications',{'url': v.id }) }}">{{ v.title }}</a>
                         <br />
-                        <img src="{{ v.preview.path }}" class="img-thumbnail" style="    height: 180px !important;">
+                        <a href="{{ path('publications',{'url': v.id }) }}">
+                            <img src="{{ v.preview.path }}" class="img-thumbnail" style="    height: 180px !important;">
+                        </a>
                     </div>
                     <br />
                 {% endfor %}
