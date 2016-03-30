@@ -1,10 +1,10 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block content %}
-    {{ dump(type) }}
+    {{ dump(events) }}
     <h1 class="blue-text">{{ type.title }}</h1>
     <div>
-        {% for p in type.publications %}
+        {% for p in events %}
             <div class="new-item">
                 <span style="color: #444; font-size: 12px">{{ p.created | date('d.m.Y') }}</span><br />
                 <a href="{{ path('event', {'url' : p.id }) }}"><div class="new-item-title">{{ p.title }}</div></a>
