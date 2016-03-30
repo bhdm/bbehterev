@@ -1,117 +1,125 @@
-<div class="row widget-test">
-    <div class="widget-test-title-box">
-        <div class="widget-test-title">
-            ТЕСТИРОВАНИЕ НА ОПРЕДЕЛЕНИЕ ВОСПАЛИТЕЛЬНОГО ХАРАКТЕРА БОЛИ
-        </div>
-        <div class="row widget-test-content">
-            <div class="col-xs-2 number">1</div>
-            <div class="col-xs-8 question">
-                Укажите как долго вы ошушаете боли в спине:
-                <br />
-                <ul>
-                    <li><input type="radio" name="test-question[1]" value="0" class="iradiobox iradio_minimal"> Меньше 3-х месяцев</li>
-                    <li><input type="radio" name="test-question[1]" value="1" class="iradiobox iradio_minimal" checked="checked"> Больше 3-х месяцев</li>
-                </ul>
-
-            </div>
-            {#<div class="col-xs-2 fullnumber">#}
-                {#<span>1</span> / 7#}
-                {#<div>вопросов</div>#}
-            {#</div>#}
-        </div>
-        <div class="row widget-test-content">
-            <div class="col-xs-2 number">2</div>
-            <div class="col-xs-8 question">
-                Укажите возраст появления первого эпизода боли в спине:
-                <br />
-                <ul>
-                    <li><input type="radio" name="test-question[2]" value="0" class="iradiobox iradio_minimal" checked="checked"> больше 40 лет </li>
-                    <li><input type="radio" name="test-question[2]" value="1" class="iradiobox iradio_minimal"> меньше 40 лет</li>
-                </ul>
-
-            </div>
-        </div>
-        <div class="row widget-test-content">
-            <div class="col-xs-2 number">3</div>
-            <div class="col-xs-8 question">
-                Укажите характер начала болей:
-                <br />
-                <ul>
-                    <li><input type="radio" name="test-question[3]" value="0" class="iradiobox iradio_minimal" checked="checked"> острое</li>
-                    <li><input type="radio" name="test-question[3]" value="1" class="iradiobox iradio_minimal"> постепенное</li>
-                </ul>
-
-            </div>
-        </div>
-        <div class="row widget-test-content">
-            <div class="col-xs-2 number">4</div>
-            <div class="col-xs-8 question">
-                Боль в спине уменьшается:
-                <br />
-                <ul>
-                    <li><input type="radio" name="test-question[4]" value="0" class="iradiobox iradio_minimal" checked="checked"> после отдыха </li>
-                    <li><input type="radio" name="test-question[4]" value="1" class="iradiobox iradio_minimal"> лечебной физкультуры или разминки</li>
-                    <li><input type="radio" name="test-question[4]" value="1" class="iradiobox iradio_minimal"> после приема нестероидных противовоспалительных препаратов</li>
-                </ul>
-
-            </div>
-        </div>
-        <div class="row widget-test-content">
-            <div class="col-xs-2 number">5</div>
-            <div class="col-xs-8 question">
-                В покое боль в спине:
-                <br />
-                <ul>
-                    <li><input type="radio" name="test-question[5]" value="0" class="iradiobox iradio_minimal" checked="checked"> усиливается</li>
-                    <li><input type="radio" name="test-question[5]" value="1" class="iradiobox iradio_minimal"> уменьшается</li>
-                </ul>
-
-            </div>
-        </div>
-        <div class="row widget-test-content">
-            <div class="col-xs-2 number">6</div>
-            <div class="col-xs-8 question">
-                Уточните наличие боли во второй половине ночи (после 3 часов):
-                <br />
-                <ul>
-                    <li><input type="radio" name="test-question[6]" value="0" class="iradiobox iradio_minimal" checked="checked"> Есть </li>
-                    <li><input type="radio" name="test-question[6]" value="1" class="iradiobox iradio_minimal"> Нет</li>
-                </ul>
-
-            </div>
-        </div>
-        <div class="row widget-test-content">
-            <div class="col-xs-2 number">7</div>
-            <div class="col-xs-8 question">
-                Ощущаете ли Вы утром скованность в позвоночнике?
-                <br />
-                <ul>
-                    <li><input type="radio" name="test-question[7]" value="0" class="iradiobox iradio_minimal" checked="checked"> Да </li>
-                    <li><input type="radio" name="test-question[7]" value="1" class="iradiobox iradio_minimal"> Нет</li>
-                </ul>
-
-            </div>
-        </div>
-        <div class="widget-test-btn">
-            <div>
-                <button class="btn btn-primary test-next">ДАЛЕЕ</button>
+{% if msg == 1 %} {# Да #}
+    <div class="row widget-test">
+        <div class="widget-test-title-box">
+            <div class="widget-test-title">
+                <b>Ваша боль носит воспалительный характер.</b>
+                Если результат ухудшится по сравнению с предыдущей его оценкой,
+                необходимо обратиться к лечащему врачу для изменения терапии.
             </div>
         </div>
     </div>
-</div>
+{% elseif msg == 2 %} {# нет #}
+    <div class="row widget-test">
+        <div class="widget-test-title-box">
+            <div class="widget-test-title">
+                <b>Ваша не боль носит воспалительный характер.</b>
+                Если результат ухудшится по сравнению с предыдущей его оценкой,
+                необходимо обратиться к лечащему врачу для изменения терапии.
+            </div>
+        </div>
+    </div>
+{% else %}
+    <form method="POST">
+        <div class="row widget-test">
+            <div class="widget-test-title-box">
+                <div class="widget-test-title">
+                    ТЕСТИРОВАНИЕ НА ОПРЕДЕЛЕНИЕ ВОСПАЛИТЕЛЬНОГО ХАРАКТЕРА БОЛИ
+                </div>
+                <div class="row widget-test-content">
+                    <div class="col-xs-2 number">1</div>
+                    <div class="col-xs-8 question">
+                        Укажите как долго вы ошушаете боли в спине:
+                        <br />
+                        <ul>
+                            <li><input type="radio" name="test-question[1]" value="0" class="iradiobox iradio_minimal"> Меньше 3-х месяцев</li>
+                            <li><input type="radio" name="test-question[1]" value="1" class="iradiobox iradio_minimal" checked="checked"> Больше 3-х месяцев</li>
+                        </ul>
 
-<script>
-    $(document).ready(function () {
-        var step = 1;
-        $('.test-next').click(function () {
-            var value = $('input[type=radio]:checked').val();
-            $.ajax({
-                url: Routing.generate('test',{'test': 'test-1','step' : step }),
-                data: value,
-                success: function(msg){
-                    $('.widget-test-content').html(msg);
-                }
-            })
-        });
-    });
-</script>
+                    </div>
+                    {#<div class="col-xs-2 fullnumber">#}
+                    {#<span>1</span> / 7#}
+                    {#<div>вопросов</div>#}
+                    {#</div>#}
+                </div>
+                <div class="row widget-test-content">
+                    <div class="col-xs-2 number">2</div>
+                    <div class="col-xs-8 question">
+                        Укажите возраст появления первого эпизода боли в спине:
+                        <br />
+                        <ul>
+                            <li><input type="radio" name="test-question[2]" value="0" class="iradiobox iradio_minimal" checked="checked"> больше 40 лет </li>
+                            <li><input type="radio" name="test-question[2]" value="1" class="iradiobox iradio_minimal"> меньше 40 лет</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="row widget-test-content">
+                    <div class="col-xs-2 number">3</div>
+                    <div class="col-xs-8 question">
+                        Укажите характер начала болей:
+                        <br />
+                        <ul>
+                            <li><input type="radio" name="test-question[3]" value="0" class="iradiobox iradio_minimal" checked="checked"> острое</li>
+                            <li><input type="radio" name="test-question[3]" value="1" class="iradiobox iradio_minimal"> постепенное</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="row widget-test-content">
+                    <div class="col-xs-2 number">4</div>
+                    <div class="col-xs-8 question">
+                        Боль в спине уменьшается:
+                        <br />
+                        <ul>
+                            <li><input type="radio" name="test-question[4]" value="0" class="iradiobox iradio_minimal" checked="checked"> после отдыха </li>
+                            <li><input type="radio" name="test-question[4]" value="1" class="iradiobox iradio_minimal"> лечебной физкультуры или разминки</li>
+                            <li><input type="radio" name="test-question[4]" value="2" class="iradiobox iradio_minimal"> после приема нестероидных противовоспалительных препаратов</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="row widget-test-content">
+                    <div class="col-xs-2 number">5</div>
+                    <div class="col-xs-8 question">
+                        В покое боль в спине:
+                        <br />
+                        <ul>
+                            <li><input type="radio" name="test-question[5]" value="0" class="iradiobox iradio_minimal" checked="checked"> усиливается</li>
+                            <li><input type="radio" name="test-question[5]" value="1" class="iradiobox iradio_minimal"> уменьшается</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="row widget-test-content">
+                    <div class="col-xs-2 number">6</div>
+                    <div class="col-xs-8 question">
+                        Уточните наличие боли во второй половине ночи (после 3 часов):
+                        <br />
+                        <ul>
+                            <li><input type="radio" name="test-question[6]" value="0" class="iradiobox iradio_minimal" checked="checked"> Есть </li>
+                            <li><input type="radio" name="test-question[6]" value="1" class="iradiobox iradio_minimal"> Нет</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="row widget-test-content">
+                    <div class="col-xs-2 number">7</div>
+                    <div class="col-xs-8 question">
+                        Ощущаете ли Вы утром скованность в позвоночнике?
+                        <br />
+                        <ul>
+                            <li><input type="radio" name="test-question[7]" value="0" class="iradiobox iradio_minimal" checked="checked"> Да </li>
+                            <li><input type="radio" name="test-question[7]" value="1" class="iradiobox iradio_minimal"> Нет</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="widget-test-btn">
+                    <div>
+                        <button class="btn btn-primary test-next">ДАЛЕЕ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endif %}

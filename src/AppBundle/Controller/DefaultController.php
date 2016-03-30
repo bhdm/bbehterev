@@ -64,8 +64,38 @@ class DefaultController extends Controller
      * @Route("/testirovanie", name="testirovanie")
      * @Template()
      */
-    public function testAction(){
-        return [];
+    public function testAction(Request $request){
+        $msg = 0;
+        if ($request->getMethod() == 'POST'){
+            $t = 0;
+            if ($request->request->get('test-question')[1] == '1'){
+                $t ++;
+            }
+            if ($request->request->get('test-question')[2] == '1'){
+                $t ++;
+            }
+            if ($request->request->get('test-question')[3] == '1'){
+                $t ++;
+            }
+            if ($request->request->get('test-question')[4] == '1'){
+                $t ++;
+            }
+            if ($request->request->get('test-question')[5] == '0'){
+                $t ++;
+            }
+            if ($request->request->get('test-question')[6] == '0'){
+                $t ++;
+            }
+            if ($request->request->get('test-question')[7] == '0'){
+                $t ++;
+            }
+            if ($t >= 5){
+                $msg = 1;
+            }else{
+                $msg = 2;
+            }
+        }
+        return ['msg' => $msg];
     }
 
     /**
