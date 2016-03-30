@@ -51,6 +51,8 @@ class PublicationController extends Controller
     public function eventAction(Request $request, $url)
     {
         $event = $this->getDoctrine()->getRepository('AppBundle:Publication')->findOneById($url);
+        $t = preg_replace('/\[(\w+)(?!\w)[^\]]*\]((?:(?!\[\/\1).)*?)\[\/\1\]/i', ' \2 ', $event->getBody());
+        $event->setBody($t);
         return ['publication' => $event];
     }
 
