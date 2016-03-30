@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class PageRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function search($search){
+        $qb = $this->createQueryBuilder('p');
+        $qb->select('p');
+        $qb->where("p.title LIKE '%$search%'");
+        $qb->orWhere("p.body LIKE '%$search%'");
+        $qb->orderBy('p.id', 'DESC');
+
+        $result = $qb->getQuery()->getResult();
+
+        return $result;
+    }
 }

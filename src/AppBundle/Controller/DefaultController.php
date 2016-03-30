@@ -155,7 +155,8 @@ class DefaultController extends Controller
      */
     public function searchAction(Request $request){
         $news = $this->getDoctrine()->getRepository('AppBundle:Publication')->search($request->query->get('search'));
-        return ['news' => $news, 'search' => $request->query->get('search')];
+        $pages = $this->getDoctrine()->getRepository('AppBundle:Pages')->search($request->query->get('search'));
+        return ['news' => $news, 'pages' => $pages, 'search' => $request->query->get('search')];
     }
 
 }

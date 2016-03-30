@@ -11,6 +11,18 @@
     <div>
         <h1 class="blue-text">Поиск по запросу "{{ search }}"</h1>
         <div style="padding-left: 50px">
+            {% for n in pages %}
+                <div class="new-item row">
+                    <div class="col-xs-12">
+                        <div class="new-title">
+                            <a href="{{ path('page',{'url' : n.slug }) }}">{{ n.title }}</a>
+                        </div>
+                        <span class="new-date">{{ n.created | date('d.m.Y') }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+
+
             {% for n in news %}
                 {% if n.preview.path is defined %}
                 <div class="new-item row">
