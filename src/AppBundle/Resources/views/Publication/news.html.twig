@@ -15,11 +15,7 @@
                 {% if n.preview.path is defined %}
                 <div class="new-item row">
                     <div class="col-xs-3">
-                        {% if n.preview.path[0] != '/' %}
-                            <img src="/{{ n.preview.path }}" class="img-thumbnail">
-                        {% else %}
-                            <img src="{{ n.preview.path }}" class="img-thumbnail">
-                        {% endif %}
+                        <img src="{{ n.preview.path }}" class="img-thumbnail">
                     </div>
                     <div class="col-xs-9">
                         <div class="new-title">

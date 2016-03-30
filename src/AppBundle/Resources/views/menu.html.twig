@@ -37,7 +37,7 @@
                 </div>
             </li>
             <li {{ app.request.attributes.get('_route') == 'index-basdai' or app.request.attributes.get('_route') == 'index-basfi'  ? 'class="active"' : ''}}>
-                <a href="#">Самодиагностика</a>
+                <a href="{{ path('page', {'url' : 'self-test'}) }}">Самодиагностика</a>
                 <div class="submenu">
                     <ul class="submenu-items">
                         <li><a href="{{ path('index-basdai') }}">Индекс BASDAI</a></li>

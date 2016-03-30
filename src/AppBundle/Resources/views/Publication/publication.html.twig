@@ -24,7 +24,7 @@
         {% endif %}
         {% if publication.iframe != null %}
             <div class="text-center">
-                {{ publication.iframe }}
+                {{ publication.iframe | raw }}
             </div>
         {% endif %}
         <br />
