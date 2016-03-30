@@ -48,48 +48,48 @@
                     </form>
                 </div>
                 {#<div class="col-xs-2">#}
-                    {#{% if app.user != null %}#}
-                        {#<div class="navbar-form navbar-right">#}
-                            {#<div class="dropdown">#}
-                                {#<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">#}
-                                    {#{{ app.user.lastName~' '~app.user.firstName }}#}
-                                    {#<span class="caret"></span>#}
-                                {#</button>#}
-                                {#<ul class="dropdown-menu dropdown-menu-top" aria-labelledby="dropdownMenu1">#}
-                                    {#{% if is_granted('ROLE_ADMIN') %}#}
-                                    {#<li><a href="{{ path('admin_main') }}">В админ панель</a></li>#}
-                                    {#{% endif %}#}
-                                    {#<li><a href="{{ path('fos_user_profile_edit') }}">В профиль</a></li>#}
-                                    {#<li><a href="{{ path('record_book') }}">Зачетка</a></li>#}
-                                    {#<li role="separator" class="divider"></li>#}
-                                    {#<li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>#}
-                                {#</ul>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#{% else %}#}
-                        {#<div class="navbar-form navbar-right">#}
-                            {#<button class="btn btn-primary" id="login">Вход</button>#}
-                        {#</div>#}
-                    {#{% endif %}#}
+                {#{% if app.user != null %}#}
+                {#<div class="navbar-form navbar-right">#}
+                {#<div class="dropdown">#}
+                {#<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">#}
+                {#{{ app.user.lastName~' '~app.user.firstName }}#}
+                {#<span class="caret"></span>#}
+                {#</button>#}
+                {#<ul class="dropdown-menu dropdown-menu-top" aria-labelledby="dropdownMenu1">#}
+                {#{% if is_granted('ROLE_ADMIN') %}#}
+                {#<li><a href="{{ path('admin_main') }}">В админ панель</a></li>#}
+                {#{% endif %}#}
+                {#<li><a href="{{ path('fos_user_profile_edit') }}">В профиль</a></li>#}
+                {#<li><a href="{{ path('record_book') }}">Зачетка</a></li>#}
+                {#<li role="separator" class="divider"></li>#}
+                {#<li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>#}
+                {#</ul>#}
+                {#</div>#}
+                {#</div>#}
+                {#{% else %}#}
+                {#<div class="navbar-form navbar-right">#}
+                {#<button class="btn btn-primary" id="login">Вход</button>#}
+                {#</div>#}
+                {#{% endif %}#}
                 {#</div>#}
             </div>
         </header>
         {% include "@App/menu.html.twig" %}
+        <div class="slider ">
+            {% include "@App/Widget/carusel.html.twig" %}
+        </div>
         {% if app.request.attributes.get('_route') == 'homepage' %}
-            <div class="slider ">
-                {% include "@App/Widget/carusel.html.twig" %}
-            </div>
-        {% endif %}
             <div class="menu-flat">
                 {% include "@App/Widget/flatmenu.html.twig" %}
             </div>
+        {% endif %}
         <br />
 
         {#{% if app.request.attributes.get('_route') == 'homepage' %}#}
-            {#<br />#}
-            {#{% include "@App/Widget/test.html.twig" %}#}
-            {#<br />#}
-            {#<br />#}
+        {#<br />#}
+        {#{% include "@App/Widget/test.html.twig" %}#}
+        {#<br />#}
+        {#<br />#}
         {#{% endif %}#}
         <div class="content">
             {% block fullContent %}{% block content %}{% endblock %}{% endblock %}
