@@ -44,6 +44,7 @@
         <div class="col-sm-5 col-xs-12" style=" padding-left: 30px;">
             <div class="content-title text-center">Видеоуроки</div>
             <div class="news-block">
+                {{ dump(videos) }}
                 {% for v in videos %}
                     <div class="news-item text-center">
                         <a href="{{ path('publications',{'url': v.id }) }}">{{ v.title }}</a>
