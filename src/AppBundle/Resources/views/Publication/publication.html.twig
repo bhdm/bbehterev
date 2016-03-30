@@ -31,6 +31,9 @@
         <br />
         <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
         <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
-        <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter" data-counter=""></div>
+        <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter" data-counter="" style="text-align: left;"
+             data-title="{{ publication.title }}"
+             data-description="{{ publication.anons }}"
+             data-image="{{ publication.preview.path is defined ? publication.preview.path : '' }}"></div>
     </div>
 {% endblock %}
