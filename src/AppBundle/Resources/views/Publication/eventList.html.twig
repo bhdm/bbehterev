@@ -1,6 +1,7 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block content %}
+    {{ dump(type) }}
     <h1 class="blue-text">{{ type.title }}</h1>
     <div>
         {% for p in type.publications %}
