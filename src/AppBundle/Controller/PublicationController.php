@@ -62,7 +62,7 @@ class PublicationController extends Controller
     {
         $type = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBy(['slug' => $type]);
         $events = $this->getDoctrine()->getRepository('AppBundle:Publication')->findBy(['enabled' => true, 'category' => $type ],['id' => 'DESC']);
-        return ['events' => $events, $type => 'type' ];
+        return ['events' => $events, 'type' => $type ];
     }
 
 
