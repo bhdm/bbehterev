@@ -50,7 +50,7 @@ class PublicationController extends Controller
      */
     public function eventAction(Request $request, $url)
     {
-        $event = $this->getDoctrine()->getRepository('AppBundle:Event')->findOneById($url);
+        $event = $this->getDoctrine()->getRepository('AppBundle:Publication')->findOneById($url);
         return ['event' => $event];
     }
 
@@ -60,7 +60,7 @@ class PublicationController extends Controller
      */
     public function eventListAction(Request $request, $type)
     {
-        $events = $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(['enabled' => true, 'type' => $type ],['start' => 'DESC']);
+        $events = $this->getDoctrine()->getRepository('AppBundle:Publication')->findBy(['enabled' => true, 'type' => $type ],['id' => 'DESC']);
         return ['events' => $events];
     }
 
